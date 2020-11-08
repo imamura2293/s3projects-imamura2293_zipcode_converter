@@ -6,11 +6,14 @@ def fetch_address(zipcode: str) -> str:
 
     response = requests.get(url)
 
-    addess1 = response.json()['results'][0]['address1']
-    addess2 = response.json()['results'][0]['address2']
-    addess3 = response.json()['results'][0]['address3']
+    #郵便番号はすべて、1つの地名に紐づくものとする。
+    result  = response.json()['results'][0]
 
-    return response.json()['results']
+    addess1 = result['address1']
+    addess2 = result['address2']
+    addess3 = result['address3']
+
+    return f'{addess1}{addess2}{addess3}'
 
 
 def test_8480046_佐賀県伊万里市伊万里町乙である():
