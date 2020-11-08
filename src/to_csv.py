@@ -9,5 +9,5 @@ def to_csv(zipcodes: List[str], addresses: List[str], output_file: str) -> None:
 
     output = '\n'.join(output_lines)
 
-    with open(output_file, mode='w') as f:
+    with open(output_file, mode='w', encoding='utf-8') as f:
         f.write(output)
